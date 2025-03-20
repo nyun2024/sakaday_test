@@ -67,4 +67,4 @@ Please change the parent <Route path="${Q}"> to <Route path="${Q==="/"?"*":`${Q}
  * LICENSE.md file in the root directory of this source tree.
  *
  * @license MIT
- */function Tg(i){return C.createElement(q0,{flushSync:Rg.flushSync,...i})}const Dg="/skdy/assets/dummy-C2Srb-6T.jpg",Mg=()=>sa.jsxs(sa.Fragment,{children:[sa.jsx("div",{children:"Home"}),sa.jsx("img",{src:Dg,alt:"dummy"})]}),Ag=og([{path:"/",element:sa.jsx(Mg,{})}],{basename:"/"});qh.createRoot(document.getElementById("root")).render();by.createRoot(document.getElementById("root")).render(sa.jsx(sa.Fragment,{children:sa.jsx(Tg,{router:Ag})}));
+ */function Tg(i){return C.createElement(q0,{flushSync:Rg.flushSync,...i})}const Dg="/sakaday_test/assets/dummy-C2Srb-6T.jpg",Mg=()=>sa.jsxs(sa.Fragment,{children:[sa.jsx("div",{children:"Home"}),sa.jsx("img",{src:Dg,alt:"dummy"})]}),Ag=og([{path:"/",element:sa.jsx(Mg,{})}],{basename:"/"});qh.createRoot(document.getElementById("root")).render();by.createRoot(document.getElementById("root")).render(sa.jsx(sa.Fragment,{children:sa.jsx(Tg,{router:Ag})}));
