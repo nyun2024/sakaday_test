@@ -67,4 +67,4 @@ Please change the parent <Route path="${Q}"> to <Route path="${Q==="/"?"*":`${Q}
  * LICENSE.md file in the root directory of this source tree.
  *
  * @license MIT
- */function Tg(i){return C.createElement(q0,{flushSync:Rg.flushSync,...i})}const Dg="/sakaday_test/assets/dummy-C2Srb-6T.jpg",Mg=()=>An.jsxs(An.Fragment,{children:[An.jsx("div",{children:"Home"}),An.jsx("img",{src:Dg,alt:"dummy"})]}),Ag=og([{path:"/",element:An.jsx(Mg,{})}],{basename:"/"});by.createRoot(document.getElementById("root")).render(An.jsx(Tg,{router:Ag}));
+ */function Tg(i){return C.createElement(q0,{flushSync:Rg.flushSync,...i})}const Dg="/sakaday_test/assets/dummy-C2Srb-6T.jpg",Mg="_title_98dxx_1",Ag={title:Mg},zg="_container_1tvsp_1",Og={container:zg},_g=({children:i})=>An.jsx("div",{className:Og.container,children:i}),Ug=()=>An.jsxs(_g,{children:[An.jsx("h1",{className:Ag.title,children:"사카모토 데이즈 능력 고사"}),An.jsx("img",{src:Dg,alt:"dummy"})]}),xg=og([{path:"/",element:An.jsx(Ug,{})}],{basename:"/"});by.createRoot(document.getElementById("root")).render(An.jsx(Tg,{router:xg}));
