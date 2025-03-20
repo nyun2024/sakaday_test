@@ -31,5 +31,5 @@ export default defineConfig({
       },
     ],
   },
-  base: '/skdy/',
+  base: '/sakaday_test/',
 })
