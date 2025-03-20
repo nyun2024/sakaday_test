@@ -6,9 +6,11 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview",
+    "deploy": "vite build && gh-pages -d dist"
   },
+  "homepage": "https://nyun2024.github.io/sakaday_test/",
   "dependencies": {
     "@redux-devtools/extension": "^3.3.0",
     "eslint-config-prettier": "^10.1.1",
