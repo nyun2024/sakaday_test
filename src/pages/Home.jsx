@@ -1,19 +1,23 @@
 import React from 'react'
-import dummy from '@img/dummy.jpg'
 import styles from './Home.module.scss'
 import Container from '@components/Container'
 import GoLink from '../components/GoLink'
+import dummy from '@img/dummy.jpg'
+import shin from '@img/character/shin.jpg'
+import nagumo from '@img/character/nagumo.jpg'
+import natsuki from '@img/character/natsuki.jpg'
+import osaragi from '@img/character/osaragi.jpg'
+import shishiba from '@img/character/shishiba.jpg'
 
 const Home = () => {
   const character = [
     { name: '사카모토 타로', img: dummy },
-    { name: '아사쿠라 신', img: dummy },
-    { name: '나구모 요이치', img: dummy },
-    { name: '루 샤오탕', img: dummy },
+    { name: '아사쿠라 신', img: shin },
+    { name: '나구모 요이치', img: nagumo },
     { name: '마시모 헤이스케', img: dummy },
-    { name: '세바 나츠키', img: dummy },
-    { name: '시시바', img: dummy },
-    { name: '오사라기', img: dummy },
+    { name: '세바 나츠키', img: natsuki },
+    { name: '시시바', img: shishiba },
+    { name: '오사라기', img: osaragi },
     { name: '아카오 리온', img: dummy },
   ]
   const randomValues = character[Math.floor(Math.random() * character.length)]
@@ -36,6 +40,7 @@ const Home = () => {
       <img src={randomValues.img} className={styles.img} alt="dummy" />
       <ul className={styles.testDesc}>
         <li>총 객관식 10개, 주관식 5개</li>
+        <li>출제범위 단행본 1권 ~ 19권</li>
         <li>
           문제가 어려울 경우 힌트 보기를
           <br />

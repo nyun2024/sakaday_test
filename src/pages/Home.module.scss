@@ -1,5 +1,5 @@
 .homeContainer {
-  padding: 55px 20px 80px;
+  padding: 50px 20px 80px;
 }
 
 .title {
@@ -47,6 +47,7 @@
   li {
     display: inline-flex;
     padding-left: 12px;
+    font-size: 14px;
     & + li {
       margin-top: 4px;
     }
