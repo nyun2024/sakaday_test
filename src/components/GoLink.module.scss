@@ -1,0 +1,14 @@
+.goLink {
+  background-color: #000;
+  font-size: 24px;
+  padding: 12px 40px;
+  border-radius: 14px;
+  color: #fff;
+  &:hover {
+    color: #fff;
+  }
+  &.disabled {
+    background-color: #bababa;
+    cursor: default;
+  }
+}

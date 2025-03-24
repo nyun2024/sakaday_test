@@ -2,8 +2,22 @@ import React from 'react'
 import dummy from '@img/dummy.jpg'
 import styles from './Home.module.scss'
 import Container from '@components/Container'
+import GoLink from '../components/GoLink'
 
 const Home = () => {
+  const character = [
+    { name: '사카모토 타로', img: dummy },
+    { name: '아사쿠라 신', img: dummy },
+    { name: '나구모 요이치', img: dummy },
+    { name: '루 샤오탕', img: dummy },
+    { name: '마시모 헤이스케', img: dummy },
+    { name: '세바 나츠키', img: dummy },
+    { name: '시시바', img: dummy },
+    { name: '오사라기', img: dummy },
+    { name: '아카오 리온', img: dummy },
+  ]
+  const randomValues = character[Math.floor(Math.random() * character.length)]
+
   return (
     <Container className={styles.homeContainer}>
       <div className={styles.subTitle}>2025년도 킬러 평가시험</div>
@@ -16,10 +30,21 @@ const Home = () => {
         <div className={styles.class}>제 1교시</div>
         <div className={styles.student}>
           <div className={styles.nameTitle}>성명</div>
-          <div className={styles.studentName}>나구모 요이치</div>
+          <div className={styles.studentName}>{randomValues.name}</div>
         </div>
       </div>
-      <img src={dummy} className={styles.img} alt="dummy" />
+      <img src={randomValues.img} className={styles.img} alt="dummy" />
+      <ul className={styles.testDesc}>
+        <li>총 객관식 10개, 주관식 5개</li>
+        <li>
+          문제가 어려울 경우 힌트 보기를
+          <br />
+          클릭해서 힌트를 얻을 수 있어요.
+        </li>
+      </ul>
+      <GoLink className={styles.goTest} link="/Quiz01" active={true}>
+        문제 풀기
+      </GoLink>
     </Container>
   )
 }

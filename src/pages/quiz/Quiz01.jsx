@@ -1,7 +1,8 @@
 import React from 'react'
+import Container from '@components/Container'
 
 const Quiz01 = () => {
-  return <div>Quiz01</div>
+  return <Container>Quiz01</Container>
 }
 
 export default Quiz01
