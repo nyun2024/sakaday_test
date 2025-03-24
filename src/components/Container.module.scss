@@ -1,5 +1,20 @@
 .container {
-  max-width: 750px;
+  max-width: 500px;
+  min-height: 100vh;
+  width: 100%;
   margin: 0 auto;
   text-align: center;
+  background-image: url(../img/paper_background.jpg);
+  background-size: cover;
+  position: relative;
+  isolation: isolate;
+
+  &::after {
+    content: '';
+    position: absolute;
+    background: white;
+    z-index: -1;
+    inset: 0;
+    opacity: 0.2;
+  }
 }
