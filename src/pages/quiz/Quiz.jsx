@@ -10,18 +10,25 @@ import { useNavigate } from 'react-router-dom'
 const Quiz = () => {
   const quizList = useSelector((state) => state.quizList)
   const [QIndex, setQIndex] = useState(0)
-  const navigate = useNavigate()
 
   const nextQuizEvent = () => {
     setQIndex(QIndex + 1)
   }
 
   const RedirectOnRefresh = () => {
+    const navigate = useNavigate()
+
     useEffect(() => {
-      if (window.performance.navigation.type === 1) {
-        window.location.replace('/')
+      const isReload = sessionStorage.getItem('isReload')
+
+      if (isReload) {
+        sessionStorage.removeItem('isReload') // reload 상태 초기화
+        navigate('/', { replace: true })
+      } else {
+        sessionStorage.setItem('isReload', 'true') // reload 상태 저장
       }
-    }, [])
+    }, [navigate])
+
     return null
   }
   RedirectOnRefresh()
