@@ -1,15 +1,20 @@
 import React from 'react'
 import styles from './Home.module.scss'
 import Container from '@components/Container'
-import GoLink from '@components/GoLink'
+import GoLink from '@components/button/GoLink'
+import { Link } from 'react-router-dom'
+
 import dummy from '@img/dummy.jpg'
 import shin from '@img/character/shin.jpg'
 import nagumo from '@img/character/nagumo.jpg'
 import natsuki from '@img/character/natsuki.jpg'
 import osaragi from '@img/character/osaragi.jpg'
 import shishiba from '@img/character/shishiba.jpg'
+import { useNavigate } from 'react-router-dom'
 
 const Home = () => {
+  const navigate = useNavigate()
+
   const character = [
     { name: '사카모토 타로', img: dummy },
     { name: '아사쿠라 신', img: shin },
@@ -47,9 +52,9 @@ const Home = () => {
           클릭해서 힌트를 얻을 수 있어요.
         </li>
       </ul>
-      <GoLink className={styles.goTest} link="/Quiz" active={true}>
+      <button type="button" onClick={() => navigate('/Quiz')}>
         문제 풀기
-      </GoLink>
+      </button>
     </Container>
   )
 }
