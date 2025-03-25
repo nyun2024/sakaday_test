@@ -4,10 +4,10 @@
   width: 100%;
   margin: 0 auto;
   text-align: center;
-  background-image: url(../img/paper_background.jpg);
-  background-size: cover;
+  background-image: url('../img/paper_background.jpg');
+  background-size: 100%;
   position: relative;
-  isolation: isolate;
+  // isolation: isolate;
 
   &::after {
     content: '';

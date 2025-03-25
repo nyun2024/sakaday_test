@@ -129,6 +129,7 @@ video {
   font-weight: 400;
 }
 
+html,
 body {
   font-family:
     'MaruBuri',
@@ -166,6 +167,13 @@ button {
   padding: 0;
   overflow: visible;
   cursor: pointer;
+  font-family:
+    'MaruBuri',
+    Helvetica,
+    Dotum,
+    '돋움',
+    Apple SD Gothic Neo,
+    sans-serif;
 }
 a {
   color: #000;

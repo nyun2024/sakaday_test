@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './Home.module.scss'
 import Container from '@components/Container'
-import GoLink from '../components/GoLink'
+import GoLink from '@components/GoLink'
 import dummy from '@img/dummy.jpg'
 import shin from '@img/character/shin.jpg'
 import nagumo from '@img/character/nagumo.jpg'
@@ -47,7 +47,7 @@ const Home = () => {
           클릭해서 힌트를 얻을 수 있어요.
         </li>
       </ul>
-      <GoLink className={styles.goTest} link="/Quiz01" active={true}>
+      <GoLink className={styles.goTest} link="/Quiz" active={true}>
         문제 풀기
       </GoLink>
     </Container>
