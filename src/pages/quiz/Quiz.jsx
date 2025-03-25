@@ -16,32 +16,15 @@ const Quiz = () => {
     setQIndex(QIndex + 1)
   }
 
-  const RefreshRedirect = () => {
-    const navigate = useNavigate()
-
+  const RedirectOnRefresh = () => {
     useEffect(() => {
-      // 새로고침 이벤트 감지
-      const handleBeforeUnload = () => {
-        sessionStorage.setItem('refreshFlag', 'true')
-      }
-
-      window.addEventListener('beforeunload', handleBeforeUnload)
-
-      return () => {
-        window.removeEventListener('beforeunload', handleBeforeUnload)
+      if (window.performance.navigation.type === 1) {
+        window.location.replace('/')
       }
     }, [])
-
-    useEffect(() => {
-      if (sessionStorage.getItem('refreshFlag') === 'true') {
-        sessionStorage.removeItem('refreshFlag')
-        navigate('/', { replace: true })
-      }
-    }, [navigate])
-
     return null
   }
-  RefreshRedirect()
+  RedirectOnRefresh()
 
   return (
     <Container>
