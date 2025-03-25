@@ -16,24 +16,32 @@ const Quiz = () => {
     setQIndex(QIndex + 1)
   }
 
-  //새로 고침시 강제로 메인으로 이동
-  useEffect(() => {
-    const handleBeforeUnload = () => {
-      sessionStorage.setItem('refreshFlag', 'true')
-    }
+  const RefreshRedirect = () => {
+    const navigate = useNavigate()
 
-    window.addEventListener('beforeunload', handleBeforeUnload)
+    useEffect(() => {
+      // 새로고침 이벤트 감지
+      const handleBeforeUnload = () => {
+        sessionStorage.setItem('refreshFlag', 'true')
+      }
 
-    return () => {
-      window.removeEventListener('beforeunload', handleBeforeUnload)
-    }
-  }, [])
-  useEffect(() => {
-    if (sessionStorage.getItem('refreshFlag') === 'true') {
-      sessionStorage.removeItem('refreshFlag')
-      navigate('/', { replace: true })
-    }
-  }, [navigate])
+      window.addEventListener('beforeunload', handleBeforeUnload)
+
+      return () => {
+        window.removeEventListener('beforeunload', handleBeforeUnload)
+      }
+    }, [])
+
+    useEffect(() => {
+      if (sessionStorage.getItem('refreshFlag') === 'true') {
+        sessionStorage.removeItem('refreshFlag')
+        navigate('/', { replace: true })
+      }
+    }, [navigate])
+
+    return null
+  }
+  RefreshRedirect()
 
   return (
     <Container>
