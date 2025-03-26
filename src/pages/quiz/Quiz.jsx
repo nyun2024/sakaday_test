@@ -23,7 +23,7 @@ const Quiz = () => {
 
     if (isReload) {
       sessionStorage.removeItem('isReload')
-      navigate('/sakaday_test/', { replace: true })
+      navigate('/', { replace: true })
     } else {
       sessionStorage.setItem('isReload', 'true')
     }

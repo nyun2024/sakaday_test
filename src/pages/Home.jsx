@@ -54,7 +54,7 @@ const Home = () => {
           클릭해서 힌트를 얻을 수 있어요.
         </li>
       </ul>
-      <GoLink className={styles.goTest} link="/sakaday_test/Quiz" active={true}>
+      <GoLink className={styles.goTest} link="/Quiz" active={true}>
         문제 풀기
       </GoLink>
     </Container>
