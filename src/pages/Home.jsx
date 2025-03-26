@@ -1,29 +1,31 @@
 import React from 'react'
+import { useEffect } from 'react'
 import styles from './Home.module.scss'
 import Container from '@components/Container'
 import GoLink from '@components/button/GoLink'
-import { Link } from 'react-router-dom'
-
 import dummy from '@img/dummy.jpg'
 import shin from '@img/character/shin.jpg'
 import nagumo from '@img/character/nagumo.jpg'
 import natsuki from '@img/character/natsuki.jpg'
 import osaragi from '@img/character/osaragi.jpg'
 import shishiba from '@img/character/shishiba.jpg'
-import { useNavigate } from 'react-router-dom'
+import rion from '@img/character/rion.jpg'
+import heisuke from '@img/character/heisuke.jpg'
 
 const Home = () => {
-  const navigate = useNavigate()
+  useEffect(() => {
+    sessionStorage.removeItem('isReload')
+  }, [])
 
   const character = [
     { name: '사카모토 타로', img: dummy },
     { name: '아사쿠라 신', img: shin },
     { name: '나구모 요이치', img: nagumo },
-    { name: '마시모 헤이스케', img: dummy },
+    { name: '마시모 헤이스케', img: heisuke },
     { name: '세바 나츠키', img: natsuki },
     { name: '시시바', img: shishiba },
     { name: '오사라기', img: osaragi },
-    { name: '아카오 리온', img: dummy },
+    { name: '아카오 리온', img: rion },
   ]
   const randomValues = character[Math.floor(Math.random() * character.length)]
 
@@ -52,9 +54,9 @@ const Home = () => {
           클릭해서 힌트를 얻을 수 있어요.
         </li>
       </ul>
-      <button type="button" onClick={() => navigate('/Quiz')}>
+      <GoLink className={styles.goTest} link="/sakaday_test/Quiz" active={true}>
         문제 풀기
-      </button>
+      </GoLink>
     </Container>
   )
 }
