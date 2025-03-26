@@ -8,9 +8,11 @@ const GoLink = ({ link, children, active }) => {
     if (!active) event.preventDefault()
   }
   return (
-    <Link to={link} className={classnames(styles.goLink, !active && styles.disabled)} onClick={linkClick}>
-      {children}
-    </Link>
+    <div className={styles.goLinkWrap}>
+      <Link to={link} className={classnames(styles.goLink, !active && styles.disabled)} onClick={linkClick}>
+        {children}
+      </Link>
+    </div>
   )
 }
 

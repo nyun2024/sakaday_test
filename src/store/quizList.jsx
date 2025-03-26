@@ -14,6 +14,12 @@ const initialState = {
       score: 5,
       type: 'basic',
     },
+    {
+      Q: '영희를 고르시오',
+      A: ['철수', '윤수', '민영', '영희', '지희'],
+      score: 2,
+      type: 'basic',
+    },
   ],
   user_answer: [],
 }

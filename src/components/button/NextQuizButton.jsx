@@ -3,9 +3,11 @@ import styles from './NextQuizButton.module.scss'
 
 const NextQuizButton = ({ children, clickBtn }) => {
   return (
-    <button type="button" className={styles.nextQuizButton} onClick={clickBtn}>
-      {children}
-    </button>
+    <div className={styles.nextQuizButtonWrap}>
+      <button type="button" className={styles.nextQuizButton} onClick={clickBtn}>
+        {children}
+      </button>
+    </div>
   )
 }
 

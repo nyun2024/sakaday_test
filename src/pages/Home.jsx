@@ -30,7 +30,7 @@ const Home = () => {
   const randomValues = character[Math.floor(Math.random() * character.length)]
 
   return (
-    <Container className={styles.homeContainer}>
+    <Container className={styles.homeContainer} center>
       <div className={styles.subTitle}>2025년도 킬러 평가시험</div>
       <h1 className={styles.title}>
         사카모토 데이즈

@@ -1,4 +1,9 @@
+.nextQuizButtonWrap {
+  text-align: center;
+}
+
 .nextQuizButton {
+  height: 51px;
   background: #000;
   font-size: 20px;
   padding: 11px 34px 13px;
@@ -7,6 +12,7 @@
   position: relative;
   z-index: 10;
   mix-blend-mode: normal;
+
   &.disabled {
     background-color: #bababa;
     cursor: default;
