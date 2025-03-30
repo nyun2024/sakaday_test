@@ -14,7 +14,8 @@ import heisuke from '@img/character/heisuke.jpg'
 
 const Home = () => {
   useEffect(() => {
-    sessionStorage.removeItem('isReload')
+    sessionStorage.removeItem('isQuizReload')
+    sessionStorage.removeItem('isResultReload')
   }, [])
 
   const character = [

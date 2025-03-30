@@ -1,13 +1,9 @@
 import React from 'react'
-import styles from './NormalQuiz.module.scss'
-import { useState } from 'react'
+import styles from './QuizStyle.module.scss'
 import AnswerButton from './AnswerButton'
 
 const NormalQuiz = ({ num, question, answers, name, onSendData }) => {
-  const [userAnswer, setUserAnswer] = useState('')
-
   const handleUserAnswer = (value) => {
-    setUserAnswer(value)
     onSendData(value)
   }
 

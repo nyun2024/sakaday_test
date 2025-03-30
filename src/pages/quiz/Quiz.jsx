@@ -1,32 +1,35 @@
 import React from 'react'
 import Container from '@components/Container'
 import NormalQuiz from '@components/quiz/NormalQuiz'
+import InputQuiz from '@components/quiz/InputQuiz'
 import { useSelector, useDispatch } from 'react-redux'
 import { setScore } from '@store/quizList'
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import NextQuizButton from '@components/button/NextQuizButton'
-import GoLink from '@components/button/GoLink'
 import ProgressBar from '@components/progress/ProgressBar'
+import MultipleQuiz from '../../components/quiz/MultipleQuiz'
 
 const Quiz = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  const quizList = useSelector((state) => state.quizList)
+  const quizList = useSelector((state) => state.quizList.quizList)
   const [QIndex, setQIndex] = useState(0)
   const [userAnswer, setUserAnswer] = useState([])
   const [allUserAnswer, setAllUserAnswer] = useState([])
   const [btnDisabled, setBtnDisabled] = useState(true)
 
   const addUserAnswers = () => {
-    const updatedAnswers = [...allUserAnswer, userAnswer] // 최신 상태 미리 계산
+    const updatedAnswers = [...allUserAnswer, userAnswer]
     setAllUserAnswer(updatedAnswers)
 
-    if (quizList.quiz_list.length === QIndex + 1) {
+    if (QIndex + 1 < quizList.length) {
+      setQIndex(QIndex + 1)
+      setUserAnswer([])
+    } else {
       dispatch(setScore(updatedAnswers))
+      navigate('/ResultScore') // 안전하게 결과 페이지로 이동
     }
-    setQIndex(QIndex + 1)
-    setUserAnswer([])
   }
 
   console.log(userAnswer)
@@ -34,6 +37,7 @@ const Quiz = () => {
 
   const handleUserAnswer = (value) => {
     setUserAnswer(value)
+    console.log(userAnswer)
   }
 
   useEffect(() => {
@@ -46,33 +50,31 @@ const Quiz = () => {
 
   //새로고침 시 홈으로 강제 이동
   useEffect(() => {
-    const isReload = sessionStorage.getItem('isReload')
+    const isQuizReload = sessionStorage.getItem('isQuizReload')
 
-    if (isReload) {
-      sessionStorage.removeItem('isReload')
+    if (isQuizReload) {
+      sessionStorage.removeItem('isQuizReload')
       navigate('/', { replace: true })
     } else {
-      sessionStorage.setItem('isReload', 'true')
+      sessionStorage.setItem('isQuizReload', 'true')
     }
   }, [navigate])
 
   return (
     <Container>
-      <ProgressBar currentNum={QIndex + 1} totalNum={quizList.quiz_list.length} />
-      {quizList.quiz_list.length >= QIndex + 1 ? (
-        <NormalQuiz num={QIndex + 1} question={quizList.quiz_list[QIndex].Q} answers={quizList.quiz_list[QIndex].A} name={`quiz0${QIndex}`} onSendData={handleUserAnswer} />
+      <ProgressBar currentNum={QIndex + 1} totalNum={quizList.length} />
+      {quizList[QIndex] && quizList[QIndex].type === 'normal' ? (
+        <NormalQuiz num={QIndex + 1} question={quizList[QIndex].Q} answers={quizList[QIndex].A} name={`quiz0${QIndex}`} onSendData={handleUserAnswer} />
+      ) : quizList[QIndex] && quizList[QIndex].type === 'input' ? (
+        <InputQuiz num={QIndex + 1} question={quizList[QIndex].Q} onSendData={handleUserAnswer} />
+      ) : quizList[QIndex] && quizList[QIndex].type === 'multiple' ? (
+        <MultipleQuiz num={QIndex + 1} question={quizList[QIndex].Q} answers={quizList[QIndex].A} onSendData={handleUserAnswer} />
       ) : (
         ''
       )}
-      {quizList.quiz_list.length > QIndex + 1 ? (
-        <NextQuizButton clickBtn={addUserAnswers} disabled={btnDisabled}>
-          다음 문제
-        </NextQuizButton>
-      ) : (
-        <GoLink link="/ResultScore" clickEvent={addUserAnswers}>
-          결과 보기
-        </GoLink>
-      )}
+      <NextQuizButton clickBtn={addUserAnswers} disabled={btnDisabled}>
+        {quizList.length > QIndex + 1 ? '다음 문제' : '결과 보기'}
+      </NextQuizButton>
     </Container>
   )
 }
