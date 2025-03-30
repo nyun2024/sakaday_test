@@ -1,6 +1,7 @@
 import Home from '@pages/Home'
 import { createHashRouter } from 'react-router-dom'
 import Quiz from '@pages/quiz/Quiz'
+import ResultScore from '@pages/result/ResultScore'
 
 const router = createHashRouter(
   [
@@ -11,6 +12,10 @@ const router = createHashRouter(
     {
       path: '/Quiz',
       element: <Quiz />,
+    },
+    {
+      path: '/ResultScore',
+      element: <ResultScore />,
     },
   ],
   { basename: '/' },
