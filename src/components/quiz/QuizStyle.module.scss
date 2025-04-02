@@ -1,0 +1,46 @@
+.answerArea {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.multipleAnswerBtn {
+  display: block;
+  width: 100%;
+  .inputRadio {
+    display: none;
+  }
+  & + .multipleAnswerBtn {
+    margin-top: 8px;
+  }
+  .customRadio {
+    display: flex;
+    align-items: center;
+    border-radius: 24px;
+    background-color: #fff;
+    height: 48px;
+    padding: 0 16px;
+    .iconCheck {
+      display: block;
+      width: 24px;
+      height: 24px;
+      background-image: url(../../img/icon/icon_check_default.png);
+      background-size: cover;
+      background-repeat: no-repeat;
+      flex-shrink: 0;
+    }
+    .answer {
+      font-size: 17px;
+      width: 100%;
+      text-align: center;
+    }
+  }
+  .inputRadio:checked + .customRadio {
+    .iconCheck {
+      background-image: url(../../img/icon/icon_check_checked.png);
+    }
+    .answer {
+      font-family: 'MaruBuriSemiBold';
+    }
+  }
+}

@@ -12,12 +12,10 @@ const NormalQuiz = ({ num, question, answers, name, onSendData }) => {
       <div className={styles.question}>
         {num}. {question}
       </div>
-      <div className={styles.answers}>
-        <fieldset>
-          {answers.map((item, index) => {
-            return <AnswerButton value={item} num={index + 1} name={name} key={item} onSendData={handleUserAnswer} />
-          })}
-        </fieldset>
+      <div className={styles.answerArea}>
+        {answers.map((item, index) => {
+          return <AnswerButton value={item} num={index + 1} name={name} key={item} onSendData={handleUserAnswer} />
+        })}
       </div>
     </>
   )
