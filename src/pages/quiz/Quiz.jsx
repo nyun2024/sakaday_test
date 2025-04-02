@@ -28,7 +28,7 @@ const Quiz = () => {
       setUserAnswer([])
     } else {
       dispatch(setScore(updatedAnswers))
-      navigate('/ResultScore') // 안전하게 결과 페이지로 이동
+      navigate('/ResultScore')
     }
   }
 
@@ -36,7 +36,13 @@ const Quiz = () => {
   console.log(allUserAnswer)
 
   const handleUserAnswer = (value) => {
-    setUserAnswer(value)
+    if (typeof value === 'string') {
+      setUserAnswer(value)
+      setBtnDisabled(value.trim().length === 0)
+    } else if (Array.isArray(value)) {
+      setUserAnswer(value)
+      setBtnDisabled(value.length === 0)
+    }
     console.log(userAnswer)
   }
 

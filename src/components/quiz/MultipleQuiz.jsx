@@ -1,6 +1,5 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styles from './QuizStyle.module.scss'
-import { useState } from 'react'
 
 const MultipleQuiz = ({ num, question, answers, onSendData }) => {
   const [selectedOptions, setSelectedOptions] = useState([])
@@ -11,15 +10,18 @@ const MultipleQuiz = ({ num, question, answers, onSendData }) => {
     const { value, checked } = event.target
 
     setSelectedOptions((prev) => (checked ? [...prev, value] : prev.filter((item) => item !== value)))
-
-    if (onSendData) {
-      onSendData(checked ? [...selectedOptions, value] : selectedOptions.filter((item) => item !== value))
-    }
   }
+
+  // 선택 옵션이 변경될 때만 `onSendData` 실행
+  useEffect(() => {
+    if (onSendData) {
+      onSendData(selectedOptions)
+    }
+  }, [selectedOptions, onSendData])
 
   const handleClick = () => {
     setPointerDisabled(true)
-    setTimeout(() => setPointerDisabled(false), 300) // 0.3초 후 다시 활성화
+    setTimeout(() => setPointerDisabled(false), 300)
   }
 
   return (
