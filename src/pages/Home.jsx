@@ -15,7 +15,6 @@ import heisuke from '@img/character/heisuke.jpg'
 const Home = () => {
   useEffect(() => {
     sessionStorage.removeItem('isQuizReload')
-    sessionStorage.removeItem('isResultReload')
   }, [])
 
   const character = [
@@ -55,7 +54,7 @@ const Home = () => {
           클릭해서 힌트를 얻을 수 있어요.
         </li>
       </ul>
-      <GoLink className={styles.goTest} link="/Quiz" disabled={false}>
+      <GoLink className={styles.goTest} link="/UseName" disabled={false}>
         문제 풀기
       </GoLink>
     </Container>

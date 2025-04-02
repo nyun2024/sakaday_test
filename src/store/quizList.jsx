@@ -44,7 +44,6 @@ const quizList = createSlice({
   name: 'quizList',
   initialState,
   reducers: {
-    setAnswer: () => {},
     setScore: (state, action) => {
       const userAnswers = action.payload
       let totalScore = 0
@@ -59,11 +58,12 @@ const quizList = createSlice({
         }
       })
       state.userScore = totalScore
+      localStorage.setItem('userScore', totalScore)
       console.log(state.userScore)
     },
   },
 })
 
-export const { setAnswer, setScore } = quizList.actions
+export const { setScore } = quizList.actions
 
 export default quizList

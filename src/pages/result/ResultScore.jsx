@@ -1,28 +1,25 @@
 import React from 'react'
 import Container from '@components/Container'
-import { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { useSelector } from 'react-redux'
 import img0to49 from '@img/score/0to49.jpg'
 import img50to69 from '@img/score/50to69.jpg'
 import img70to89 from '@img/score/70to89.jpg'
 import img90to100 from '@img/score/90to100.jpg'
 
 const ResultScore = () => {
-  const navigate = useNavigate()
-  const userScore = useSelector((state) => state.quizList.userScore)
+  const userScore = localStorage.getItem('userScore')
+  const userName = localStorage.getItem('userName')
 
   //새로고침 시 홈으로 강제 이동
-  useEffect(() => {
-    const isResultReload = sessionStorage.getItem('isResultReload')
+  // useEffect(() => {
+  //   const isResultReload = sessionStorage.getItem('isResultReload')
 
-    if (isResultReload) {
-      sessionStorage.removeItem('isResultReload')
-      navigate('/', { replace: true })
-    } else {
-      sessionStorage.setItem('isResultReload', 'true')
-    }
-  }, [navigate])
+  //   if (isResultReload) {
+  //     sessionStorage.removeItem('isResultReload')
+  //     navigate('/', { replace: true })
+  //   } else {
+  //     sessionStorage.setItem('isResultReload', 'true')
+  //   }
+  // }, [navigate])
 
   const scoreView = {
     score0to49: {
@@ -51,9 +48,10 @@ const ResultScore = () => {
 
   return (
     <Container>
+      <div>{userName}님의 점수는</div>
       <div>{userScore}점</div>
       <img src={resultData.img} alt="score image" />
-      <p style={{ whiteSpace: 'pre-line' }}>{resultData.dialogue}</p>
+      <p>{resultData.dialogue}</p>
     </Container>
   )
 }
