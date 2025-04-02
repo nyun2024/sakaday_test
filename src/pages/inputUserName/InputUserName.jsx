@@ -6,7 +6,6 @@ import styles from './inputUserName.module.scss'
 const InputUserName = () => {
   const [userName, setUserName] = useState('')
 
-  // ✅ 상태를 즉시 반영하여 깜빡임 방지
   const handleInputChange = (e) => {
     const value = e.target.value
     setUserName(value)
@@ -27,12 +26,7 @@ const InputUserName = () => {
         콜리 유저는 <strong>'콜리 닉네임'</strong>으로 입력 부탁드립니다.
       </div>
       <input type="text" className={styles.input} onChange={handleInputChange} />
-      <GoLink
-        className={styles.goTest}
-        link="/Quiz"
-        disabled={userName.length === 0} // ✅ useEffect 제거하고 즉시 반영
-        clickEvent={clickLinkEvent}
-      >
+      <GoLink className={styles.goTest} link="/Quiz" disabled={userName.length === 0} clickEvent={clickLinkEvent}>
         확인
       </GoLink>
     </Container>
