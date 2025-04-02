@@ -6,9 +6,6 @@
   appearance: none !important;
   .inputRadio {
     display: none;
-    // -webkit-tap-highlight-color: transparent !important;
-    // touch-action: manipulation !important;
-    // appearance: none !important;
     opacity: 0;
   }
   & + .answerButton {
