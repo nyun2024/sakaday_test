@@ -1,8 +1,15 @@
 .answerButton {
   display: block;
   width: 100%;
+  -webkit-tap-highlight-color: transparent !important;
+  touch-action: manipulation !important;
+  appearance: none !important;
   .inputRadio {
     display: none;
+    -webkit-tap-highlight-color: transparent !important;
+    touch-action: manipulation !important;
+    appearance: none !important;
+    opacity: 0;
   }
   & + .answerButton {
     margin-top: 8px;
