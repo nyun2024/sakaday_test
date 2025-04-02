@@ -209,8 +209,8 @@ input[type='number']::-webkit-outer-spin-button {
 
 input[type='radio'],
 input[type='checkbox'] {
-  -webkit-tap-highlight-color: transparent;
-  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent !important;
+  touch-action: manipulation !important;
 }
 
 select {

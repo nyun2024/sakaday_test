@@ -5,13 +5,15 @@ import classnames from 'classnames'
 
 const GoLink = ({ link, children, disabled, clickEvent }) => {
   const linkClick = (event) => {
-    if (disabled) event.preventDefault()
+    if (disabled) {
+      event.preventDefault()
+    }
   }
 
-  const handleGoClickevent = () => {
-    linkClick() // 자식의 기존 함수 실행
+  const handleGoClickevent = (event) => {
+    linkClick(event)
     if (clickEvent) {
-      clickEvent() // 부모에서 전달된 함수 실행
+      clickEvent()
     }
   }
 
