@@ -12,6 +12,7 @@
   appearance: none !important;
   .inputRadio {
     display: none;
+    opacity: 0;
   }
   & + .multipleAnswerBtn {
     margin-top: 8px;
