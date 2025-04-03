@@ -1,0 +1,39 @@
+.inputUserNameContainer {
+  padding: 60px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.title {
+  font-size: 22px;
+  margin-bottom: 10px;
+  font-family: 'MaruBuriSemiBold';
+}
+.desc {
+  color: #222;
+  word-break: keep-all;
+  line-height: 26px;
+  margin-bottom: 20px;
+  strong {
+    font-family: 'MaruBuriSemiBold';
+    color: rgb(233, 33, 33);
+    span {
+      text-decoration: underline;
+      text-underline-offset: 6px;
+    }
+  }
+}
+.input {
+  width: 100%;
+  max-width: 350px;
+  height: 46px;
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-size: 16px;
+  margin-bottom: 60px;
+  &:focus,
+  &:focus-visible {
+    outline: 2px solid #222;
+  }
+}

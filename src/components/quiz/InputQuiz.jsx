@@ -6,14 +6,14 @@ const InputQuiz = ({ num, question, onSendData }) => {
     onSendData(e.target.value)
   }
   return (
-    <>
+    <div className={styles.quizContainer}>
       <div className={styles.question}>
         {num}. {question}
       </div>
       <div className={styles.inputWrap}>
-        <input type="text" onChange={handleInputChange} placeholder="답을 입력해주세요." />
+        <input type="text" className={styles.input} onChange={handleInputChange} placeholder="답을 입력해주세요." />
       </div>
-    </>
+    </div>
   )
 }
 

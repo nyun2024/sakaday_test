@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import styles from './Home.module.scss'
 import Container from '@components/Container'
 import GoLink from '@components/button/GoLink'
-import dummy from '@img/dummy.jpg'
+import sakamoto from '@img/character/sakamoto.jpg'
 import shin from '@img/character/shin.jpg'
 import nagumo from '@img/character/nagumo.jpg'
 import natsuki from '@img/character/natsuki.jpg'
@@ -18,7 +18,7 @@ const Home = () => {
   }, [])
 
   const character = [
-    { name: '사카모토 타로', img: dummy },
+    { name: '사카모토 타로', img: sakamoto },
     { name: '아사쿠라 신', img: shin },
     { name: '나구모 요이치', img: nagumo },
     { name: '마시모 헤이스케', img: heisuke },

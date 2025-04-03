@@ -8,7 +8,7 @@ const NormalQuiz = ({ num, question, answers, name, onSendData }) => {
   }
 
   return (
-    <>
+    <div className={styles.quizContainer}>
       <div className={styles.question}>
         {num}. {question}
       </div>
@@ -17,7 +17,7 @@ const NormalQuiz = ({ num, question, answers, name, onSendData }) => {
           return <AnswerButton value={item} num={index + 1} name={name} key={item} onSendData={handleUserAnswer} />
         })}
       </div>
-    </>
+    </div>
   )
 }
 

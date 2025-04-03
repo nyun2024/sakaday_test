@@ -18,7 +18,7 @@ const MultipleQuiz = ({ num, question, answers, onSendData }) => {
   }, [selectedOptions, onSendData])
 
   return (
-    <>
+    <div className={styles.quizContainer}>
       <div className={styles.question}>
         {num}. {question}
       </div>
@@ -33,7 +33,7 @@ const MultipleQuiz = ({ num, question, answers, onSendData }) => {
           </label>
         ))}
       </div>
-    </>
+    </div>
   )
 }
 
