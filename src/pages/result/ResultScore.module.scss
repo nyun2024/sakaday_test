@@ -1,0 +1,33 @@
+.resultScoreContainer {
+  padding: 55px 20px;
+}
+
+.userResultScore {
+  font-size: 17px;
+  text-align: center;
+}
+.username {
+  font-size: 18px;
+  font-family: 'MaruBuriSemiBold';
+  margin-right: 1px;
+}
+.score {
+  font-size: 38px;
+  color: rgb(233, 33, 33);
+  display: inline-flex;
+  align-items: center;
+  margin: 6px 0 20px;
+  .scoreNum {
+    font-size: 72px;
+    line-height: 72px;
+    font-family: 'MaruBuriBold';
+    margin-right: 1px;
+  }
+}
+.scoreImg {
+  width: 90%;
+  border-radius: 8px;
+}
+.dialogue {
+  margin-top: 20px;
+}
