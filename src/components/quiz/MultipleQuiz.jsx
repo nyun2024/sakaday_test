@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import styles from './QuizStyle.module.scss'
 
-const MultipleQuiz = ({ num, question, answers, onSendData }) => {
+const MultipleQuiz = ({ num, totalNum, question, answers, onSendData }) => {
   const [selectedOptions, setSelectedOptions] = useState([])
 
   // 체크박스 변경 이벤트 핸들러
@@ -19,9 +19,12 @@ const MultipleQuiz = ({ num, question, answers, onSendData }) => {
 
   return (
     <div className={styles.quizContainer}>
-      <div className={styles.question}>
-        {num}. {question}
+      <div className={styles.quizNum}>
+        <span className={styles.currentNum}>{num < 10 ? '0' + num : num}</span>
+        <span className={styles.slash}> / </span>
+        {totalNum < 10 ? '0' + totalNum : totalNum}
       </div>
+      <div className={styles.question}>{question}</div>
       <div className={styles.answerArea}>
         {answers.map((answer) => (
           <label key={answer} className={styles.multipleAnswerBtn}>

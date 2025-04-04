@@ -1,10 +1,10 @@
 .resultScoreContainer {
-  padding: 55px 20px;
+  padding: 50px 20px;
 }
 
 .userResultScore {
-  font-size: 17px;
-  text-align: center;
+  font-size: 15px;
+  // text-align: center;
 }
 .username {
   font-size: 18px;
@@ -12,22 +12,32 @@
   margin-right: 1px;
 }
 .score {
-  font-size: 38px;
+  font-size: 56px;
   color: rgb(233, 33, 33);
   display: inline-flex;
   align-items: center;
-  margin: 6px 0 20px;
+  margin-top: 3px;
+  margin: 3px 0 5px;
+  font-family: 'Ownglyph_Dailyokja-Rg';
   .scoreNum {
-    font-size: 72px;
-    line-height: 72px;
-    font-family: 'MaruBuriBold';
-    margin-right: 1px;
+    font-size: 107px;
+    line-height: 107px;
+    margin-right: 2px;
+    letter-spacing: -0.1px;
   }
+}
+.scoreImgDialogue {
+  width: 80%;
+  margin: 0 auto;
 }
 .scoreImg {
   width: 90%;
-  border-radius: 8px;
+  border-radius: 16px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  margin-bottom: 55px;
 }
 .dialogue {
-  margin-top: 20px;
+  font-size: 24px;
+  margin-bottom: 22px;
+  font-family: 'Ownglyph_Dailyokja-Rg';
 }

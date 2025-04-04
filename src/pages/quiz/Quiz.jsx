@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom'
 import NextQuizButton from '@components/button/NextQuizButton'
 import ProgressBar from '@components/progress/ProgressBar'
 import MultipleQuiz from '../../components/quiz/MultipleQuiz'
+import styles from './Quiz.module.scss'
 
 const Quiz = () => {
   const dispatch = useDispatch()
@@ -70,15 +71,15 @@ const Quiz = () => {
     <Container>
       <ProgressBar currentNum={QIndex + 1} totalNum={quizList.length} />
       {quizList[QIndex] && quizList[QIndex].type === 'normal' ? (
-        <NormalQuiz num={QIndex + 1} question={quizList[QIndex].Q} answers={quizList[QIndex].A} name={`quiz0${QIndex}`} onSendData={handleUserAnswer} />
+        <NormalQuiz num={QIndex + 1} totalNum={quizList.length} question={quizList[QIndex].Q} answers={quizList[QIndex].A} name={`quiz0${QIndex}`} onSendData={handleUserAnswer} />
       ) : quizList[QIndex] && quizList[QIndex].type === 'input' ? (
-        <InputQuiz num={QIndex + 1} question={quizList[QIndex].Q} onSendData={handleUserAnswer} />
+        <InputQuiz num={QIndex + 1} totalNum={quizList.length} question={quizList[QIndex].Q} onSendData={handleUserAnswer} />
       ) : quizList[QIndex] && quizList[QIndex].type === 'multiple' ? (
-        <MultipleQuiz num={QIndex + 1} question={quizList[QIndex].Q} answers={quizList[QIndex].A} onSendData={handleUserAnswer} />
+        <MultipleQuiz num={QIndex + 1} totalNum={quizList.length} question={quizList[QIndex].Q} answers={quizList[QIndex].A} onSendData={handleUserAnswer} />
       ) : (
         ''
       )}
-      <NextQuizButton clickBtn={addUserAnswers} disabled={btnDisabled}>
+      <NextQuizButton className={styles.nextBtn} clickBtn={addUserAnswers} disabled={btnDisabled}>
         {quizList.length > QIndex + 1 ? '다음 문제' : '결과 보기'}
       </NextQuizButton>
     </Container>

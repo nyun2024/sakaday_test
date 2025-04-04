@@ -5,6 +5,7 @@ import img50to69 from '@img/score/50to69.jpg'
 import img70to89 from '@img/score/70to89.jpg'
 import img90to100 from '@img/score/90to100.jpg'
 import styles from './ResultScore.module.scss'
+import GoLink from '@components/button/GoLink'
 
 const ResultScore = () => {
   const userScore = localStorage.getItem('userScore')
@@ -56,7 +57,6 @@ const ResultScore = () => {
           <span className={styles.scoreNum}>{userScore}</span>점
         </span>
       </div>
-      <img src={resultData.img} className={styles.scoreImg} alt="score image" />
       <p className={styles.dialogue}>
         {resultData.dialogue.split('\n').map((line, index) => (
           <React.Fragment key={index}>
@@ -65,6 +65,12 @@ const ResultScore = () => {
           </React.Fragment>
         ))}
       </p>
+      {/* <div className={styles.scoreImgDialogue}> */}
+      <img src={resultData.img} className={styles.scoreImg} alt="score image" />
+      {/* </div> */}
+      <GoLink className={styles.goHome} link="/" disabled={false}>
+        재시험 보기
+      </GoLink>
     </Container>
   )
 }

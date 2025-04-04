@@ -9,9 +9,7 @@ const ProgressBar = ({ totalNum, currentNum }) => {
       <div className={styles.progressbar}>
         <div className={styles.activeBar} style={{ width: `${progress}%` }}></div>
       </div>
-      <span>
-        {currentNum} / {totalNum}
-      </span>
+      <div className={styles.sakamotoIcon} style={{ left: `calc(${progress}% - 24px)` }}></div>
     </div>
   )
 }

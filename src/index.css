@@ -38,6 +38,13 @@
     url(https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Light.ttf) format('truetype');
 }
 
+@font-face {
+  font-family: 'Ownglyph_Dailyokja-Rg';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2403@1.0/Ownglyph_Dailyokja-Rg.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
 /* reset */
 html,
 body,
