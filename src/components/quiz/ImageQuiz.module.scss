@@ -18,6 +18,7 @@
   }
   .answerArea {
     display: flex;
+    align-items: stretch;
     justify-content: space-between;
     gap: 13px 10px;
     flex-wrap: wrap;
