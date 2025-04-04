@@ -1,5 +1,5 @@
 .quizContainer {
-  padding: 42px 10px 0;
+  padding-top: 42px;
   .quizNum {
     font-size: 14px;
     text-align: center;
@@ -18,7 +18,8 @@
   }
   .answerArea {
     display: flex;
-    gap: 10px;
+    justify-content: space-between;
+    gap: 13px 10px;
     flex-wrap: wrap;
   }
 }
