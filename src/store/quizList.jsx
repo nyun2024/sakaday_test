@@ -1,19 +1,47 @@
 import { createSlice } from '@reduxjs/toolkit'
+import sakamoto from '@img/character/sakamoto.jpg'
+import shin from '@img/character/shin.jpg'
+import nagumo from '@img/character/nagumo.jpg'
+import natsuki from '@img/character/natsuki.jpg'
 
 const initialState = {
   quizList: [
     {
+      Q: 'C를 고르시오.',
+      A: [
+        { a: 'A', img: sakamoto },
+        { a: 'B', img: shin },
+        { a: 'C', img: nagumo },
+        { a: 'D', img: natsuki },
+      ],
+      correctAnswer: 'C',
+      score: 10,
+      type: 'img',
+    },
+    {
+      Q: 'BB를 고르시오.',
+      A: [
+        { a: 'AA', img: sakamoto },
+        { a: 'BB', img: shin },
+        { a: 'CC', img: nagumo },
+        { a: 'DD', img: natsuki },
+      ],
+      correctAnswer: 'BB',
+      score: 10,
+      type: 'imgDisableText',
+    },
+    {
       Q: '사과를 고르시오',
       A: ['사과', '배', '귤', '포도', '파인애플'],
       correctAnswer: '사과',
-      score: 20,
+      score: 10,
       type: 'normal',
     },
     {
       Q: '서울을 고르시오',
       A: ['대전', '부산', '서울', '강원도', '인천'],
       correctAnswer: '서울',
-      score: 20,
+      score: 10,
       type: 'normal',
     },
     {

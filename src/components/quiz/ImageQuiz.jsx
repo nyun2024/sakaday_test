@@ -1,8 +1,8 @@
 import React from 'react'
-import styles from './NormalQuiz.module.scss'
-import AnswerButton from './AnswerButton'
+import styles from './ImageQuiz.module.scss'
+import ImgAnswerButton from './ImgAnswerButton'
 
-const NormalQuiz = ({ num, totalNum, question, answers, name, onSendData }) => {
+const ImageQuiz = ({ num, totalNum, question, answers, name, onSendData, imgDisableText }) => {
   const handleUserAnswer = (value) => {
     onSendData(value)
   }
@@ -17,11 +17,11 @@ const NormalQuiz = ({ num, totalNum, question, answers, name, onSendData }) => {
       <div className={styles.question}>{question}</div>
       <div className={styles.answerArea}>
         {answers.map((item, index) => {
-          return <AnswerButton value={item} num={index + 1} name={name} key={item} onSendData={handleUserAnswer} />
+          return <ImgAnswerButton value={item.a} num={index + 1} name={name} key={item.a} img={item.img} disableText={imgDisableText} onSendData={handleUserAnswer} />
         })}
       </div>
     </div>
   )
 }
 
-export default NormalQuiz
+export default ImageQuiz

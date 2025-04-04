@@ -1,0 +1,45 @@
+.ImgAnswerButton {
+  width: calc(50% - 10px);
+  -webkit-tap-highlight-color: transparent !important;
+  touch-action: manipulation !important;
+  appearance: none !important;
+  .inputRadio {
+    display: none;
+    opacity: 0;
+  }
+  .customRadio {
+    padding: 10px;
+    border-radius: 16px;
+    background-color: #fff;
+  }
+  .iconCheck {
+    display: block;
+    width: 24px;
+    height: 24px;
+    background-image: url(../../img/icon/icon_check_default.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-bottom: 10px;
+  }
+  .answer {
+    font-size: 16px;
+    line-height: 24px;
+    word-break: keep-all;
+    &.disableText {
+      display: none;
+    }
+  }
+  .inputRadio:checked + .customRadio {
+    background-color: #fffcf1;
+    .iconCheck {
+      background-color: #fffcf1;
+      background-image: url(../../img/icon/icon_check_checked.png);
+    }
+    .answer {
+      font-family: 'MaruBuriSemiBold';
+    }
+  }
+  img {
+    width: 100%;
+  }
+}

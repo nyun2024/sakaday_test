@@ -1,0 +1,24 @@
+.quizContainer {
+  padding: 42px 10px 0;
+  .quizNum {
+    font-size: 14px;
+    text-align: center;
+    .currentNum {
+      font-size: 22px;
+      font-family: 'MaruBuriBold';
+    }
+    .slash {
+      font-size: 10px;
+    }
+  }
+  .question {
+    word-break: keep-all;
+    margin: 10px 0 30px;
+    text-align: center;
+  }
+  .answerArea {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+}

@@ -10,6 +10,7 @@ import NextQuizButton from '@components/button/NextQuizButton'
 import ProgressBar from '@components/progress/ProgressBar'
 import MultipleQuiz from '../../components/quiz/MultipleQuiz'
 import styles from './Quiz.module.scss'
+import ImageQuiz from '../../components/quiz/ImageQuiz'
 
 const Quiz = () => {
   const dispatch = useDispatch()
@@ -69,7 +70,7 @@ const Quiz = () => {
   }, [navigate])
 
   return (
-    <Container>
+    <Container className={styles.quizContainer}>
       <ProgressBar currentNum={QIndex + 1} totalNum={quizList.length} />
       {quizList[QIndex] && quizList[QIndex].type === 'normal' ? (
         <NormalQuiz num={QIndex + 1} totalNum={quizList.length} question={quizList[QIndex].Q} answers={quizList[QIndex].A} name={`quiz0${QIndex}`} onSendData={handleUserAnswer} />
@@ -77,6 +78,18 @@ const Quiz = () => {
         <InputQuiz num={QIndex + 1} totalNum={quizList.length} question={quizList[QIndex].Q} onSendData={handleUserAnswer} />
       ) : quizList[QIndex] && quizList[QIndex].type === 'multiple' ? (
         <MultipleQuiz num={QIndex + 1} totalNum={quizList.length} question={quizList[QIndex].Q} answers={quizList[QIndex].A} onSendData={handleUserAnswer} />
+      ) : quizList[QIndex] && quizList[QIndex].type === 'img' ? (
+        <ImageQuiz
+          num={QIndex + 1}
+          totalNum={quizList.length}
+          question={quizList[QIndex].Q}
+          answers={quizList[QIndex].A}
+          name={`quiz0${QIndex}`}
+          onSendData={handleUserAnswer}
+          imgDisableText={false}
+        />
+      ) : quizList[QIndex] && quizList[QIndex].type === 'imgDisableText' ? (
+        <ImageQuiz num={QIndex + 1} totalNum={quizList.length} question={quizList[QIndex].Q} answers={quizList[QIndex].A} name={`quiz0${QIndex}`} onSendData={handleUserAnswer} imgDisableText={true} />
       ) : (
         ''
       )}

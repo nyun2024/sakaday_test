@@ -1,0 +1,39 @@
+.quizContainer {
+  padding: 42px 10px 0;
+  .quizNum {
+    font-size: 14px;
+    text-align: center;
+    .currentNum {
+      font-size: 22px;
+      font-family: 'MaruBuriBold';
+    }
+    .slash {
+      font-size: 10px;
+    }
+  }
+  .question {
+    word-break: keep-all;
+    margin: 10px 0 30px;
+    text-align: center;
+  }
+  .answerArea {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+}
+
+.inputWrap {
+  margin-bottom: 40px;
+  .input {
+    width: 100%;
+    height: 46px;
+    border-radius: 8px;
+    padding: 6px 10px;
+    font-size: 16px;
+    &:focus,
+    &:focus-visible {
+      outline: 2px solid #222;
+    }
+  }
+}

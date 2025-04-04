@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Container from '@components/Container'
 import img0to49 from '@img/score/0to49.jpg'
 import img50to69 from '@img/score/50to69.jpg'
@@ -6,22 +6,25 @@ import img70to89 from '@img/score/70to89.jpg'
 import img90to100 from '@img/score/90to100.jpg'
 import styles from './ResultScore.module.scss'
 import GoLink from '@components/button/GoLink'
+import Loading from './Loading'
 
 const ResultScore = () => {
-  const userScore = localStorage.getItem('userScore')
-  const userName = localStorage.getItem('userName')
+  const [userScore, setUserScore] = useState(null)
+  const [userName, setUserName] = useState('')
+  const [isLoading, setIsLoading] = useState(true)
 
-  //새로고침 시 홈으로 강제 이동
-  // useEffect(() => {
-  //   const isResultReload = sessionStorage.getItem('isResultReload')
+  useEffect(() => {
+    setTimeout(() => {
+      setUserScore(Number(localStorage.getItem('userScore')) || 0)
+      setUserName(localStorage.getItem('userName') || '사용자')
+      setIsLoading(false)
+    }, 2000)
+  }, [])
 
-  //   if (isResultReload) {
-  //     sessionStorage.removeItem('isResultReload')
-  //     navigate('/', { replace: true })
-  //   } else {
-  //     sessionStorage.setItem('isResultReload', 'true')
-  //   }
-  // }, [navigate])
+  // 로딩 중
+  if (isLoading) {
+    return <Loading />
+  }
 
   const scoreView = {
     score0to49: {
@@ -65,9 +68,7 @@ const ResultScore = () => {
           </React.Fragment>
         ))}
       </p>
-      {/* <div className={styles.scoreImgDialogue}> */}
       <img src={resultData.img} className={styles.scoreImg} alt="score image" />
-      {/* </div> */}
       <GoLink className={styles.goHome} link="/" disabled={false}>
         재시험 보기
       </GoLink>

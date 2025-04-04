@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './QuizStyle.module.scss'
+import styles from './InputQuiz.module.scss'
 
 const InputQuiz = ({ num, totalNum, question, onSendData }) => {
   const handleInputChange = (e) => {

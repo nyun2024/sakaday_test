@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import styles from './QuizStyle.module.scss'
+import styles from './MultipleQuiz.module.scss'
 
 const MultipleQuiz = ({ num, totalNum, question, answers, onSendData }) => {
   const [selectedOptions, setSelectedOptions] = useState([])

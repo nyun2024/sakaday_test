@@ -1,0 +1,53 @@
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  img {
+    width: 120px;
+  }
+  p {
+    font-family: 'Ownglyph_Dailyokja-Rg';
+    margin: 20px 0 50px 0;
+    font-size: 26px;
+  }
+}
+
+.loader {
+  width: 60px;
+  margin: 0 auto;
+  aspect-ratio: 3.8;
+  --_g: no-repeat radial-gradient(circle closest-side, #444 90%, #0000);
+  background:
+    var(--_g) 0% 50%,
+    var(--_g) 50% 50%,
+    var(--_g) 100% 50%;
+  background-size: calc(100% / 1.75) 50%;
+  animation: l3 1s infinite linear;
+}
+@keyframes l3 {
+  20% {
+    background-position:
+      0% 0%,
+      50% 50%,
+      100% 50%;
+  }
+  40% {
+    background-position:
+      0% 100%,
+      50% 0%,
+      100% 50%;
+  }
+  60% {
+    background-position:
+      0% 50%,
+      50% 100%,
+      100% 0%;
+  }
+  80% {
+    background-position:
+      0% 50%,
+      50% 50%,
+      100% 100%;
+  }
+}
