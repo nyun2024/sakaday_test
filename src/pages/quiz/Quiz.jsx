@@ -73,23 +73,41 @@ const Quiz = () => {
     <Container className={styles.quizContainer}>
       <ProgressBar currentNum={QIndex + 1} totalNum={quizList.length} />
       {quizList[QIndex] && quizList[QIndex].type === 'normal' ? (
-        <NormalQuiz num={QIndex + 1} totalNum={quizList.length} question={quizList[QIndex].Q} answers={quizList[QIndex].A} name={`quiz0${QIndex}`} onSendData={handleUserAnswer} />
+        <NormalQuiz
+          num={QIndex + 1}
+          totalNum={quizList.length}
+          question={quizList[QIndex].Q}
+          answers={quizList[QIndex].A}
+          hint={quizList[QIndex].hint}
+          name={`quiz0${QIndex}`}
+          onSendData={handleUserAnswer}
+        />
       ) : quizList[QIndex] && quizList[QIndex].type === 'input' ? (
-        <InputQuiz num={QIndex + 1} totalNum={quizList.length} question={quizList[QIndex].Q} onSendData={handleUserAnswer} />
+        <InputQuiz num={QIndex + 1} totalNum={quizList.length} question={quizList[QIndex].Q} hint={quizList[QIndex].hint} onSendData={handleUserAnswer} />
       ) : quizList[QIndex] && quizList[QIndex].type === 'multiple' ? (
-        <MultipleQuiz num={QIndex + 1} totalNum={quizList.length} question={quizList[QIndex].Q} answers={quizList[QIndex].A} onSendData={handleUserAnswer} />
+        <MultipleQuiz num={QIndex + 1} totalNum={quizList.length} question={quizList[QIndex].Q} answers={quizList[QIndex].A} hint={quizList[QIndex].hint} onSendData={handleUserAnswer} />
       ) : quizList[QIndex] && quizList[QIndex].type === 'img' ? (
         <ImageQuiz
           num={QIndex + 1}
           totalNum={quizList.length}
           question={quizList[QIndex].Q}
           answers={quizList[QIndex].A}
+          hint={quizList[QIndex].hint}
           name={`quiz0${QIndex}`}
           onSendData={handleUserAnswer}
           imgDisableText={false}
         />
       ) : quizList[QIndex] && quizList[QIndex].type === 'imgDisableText' ? (
-        <ImageQuiz num={QIndex + 1} totalNum={quizList.length} question={quizList[QIndex].Q} answers={quizList[QIndex].A} name={`quiz0${QIndex}`} onSendData={handleUserAnswer} imgDisableText={true} />
+        <ImageQuiz
+          num={QIndex + 1}
+          totalNum={quizList.length}
+          question={quizList[QIndex].Q}
+          answers={quizList[QIndex].A}
+          hint={quizList[QIndex].hint}
+          name={`quiz0${QIndex}`}
+          onSendData={handleUserAnswer}
+          imgDisableText={true}
+        />
       ) : (
         ''
       )}

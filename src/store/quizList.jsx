@@ -17,6 +17,7 @@ const initialState = {
       correctAnswer: 'C',
       score: 10,
       type: 'img',
+      hint: '가나다',
     },
     {
       Q: 'BB를 고르시오.',
@@ -29,6 +30,7 @@ const initialState = {
       correctAnswer: 'BB',
       score: 10,
       type: 'imgDisableText',
+      hint: '라바사',
     },
     {
       Q: '사과를 고르시오',
@@ -36,6 +38,7 @@ const initialState = {
       correctAnswer: '사과',
       score: 10,
       type: 'normal',
+      hint: '아자차',
     },
     {
       Q: '서울을 고르시오',
@@ -43,12 +46,14 @@ const initialState = {
       correctAnswer: '서울',
       score: 10,
       type: 'normal',
+      hint: '안녕안녕녕',
     },
     {
       Q: '안녕을 입력하세요',
       correctAnswer: '안녕',
       score: 20,
       type: 'input',
+      hint: '호호호호',
     },
     {
       Q: '나구모와 신을 고르시오.',
@@ -56,6 +61,7 @@ const initialState = {
       correctAnswer: ['나구모', '신'],
       score: 20,
       type: 'multiple',
+      hint: '감사감사',
     },
     {
       Q: '영희를 고르시오',
@@ -63,6 +69,7 @@ const initialState = {
       correctAnswer: '영희',
       score: 20,
       type: 'normal',
+      hint: '끝끝끝',
     },
   ],
   userScore: 0,

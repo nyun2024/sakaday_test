@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import styles from './MultipleQuiz.module.scss'
 
-const MultipleQuiz = ({ num, totalNum, question, answers, onSendData }) => {
+const MultipleQuiz = ({ num, totalNum, question, answers, hint, onSendData }) => {
   const [selectedOptions, setSelectedOptions] = useState([])
+  const [isHintVisible, setIsHintVisible] = useState(false)
+  const hintRef = useRef(null)
 
   // 체크박스 변경 이벤트 핸들러
   const handleCheckboxChange = (event) => {
@@ -17,6 +19,24 @@ const MultipleQuiz = ({ num, totalNum, question, answers, onSendData }) => {
     }
   }, [selectedOptions, onSendData])
 
+  const toggleHint = () => {
+    setIsHintVisible((prev) => !prev)
+  }
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (hintRef.current && !hintRef.current.contains(e.target)) {
+        setIsHintVisible(false)
+      }
+    }
+    if (isHintVisible) {
+      document.addEventListener('mousedown', handleClickOutside)
+    }
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [isHintVisible])
+
   return (
     <div className={styles.quizContainer}>
       <div className={styles.quizNum}>
@@ -25,6 +45,20 @@ const MultipleQuiz = ({ num, totalNum, question, answers, onSendData }) => {
         {totalNum < 10 ? '0' + totalNum : totalNum}
       </div>
       <div className={styles.question}>{question}</div>
+
+      <div className={styles.hintAreaWrap}>
+        <div className={styles.hintArea} ref={hintRef}>
+          <button type="button" className={styles.hintButton} onClick={toggleHint}>
+            {isHintVisible ? '힌트 닫기' : '힌트 보기'}
+          </button>
+          {isHintVisible && (
+            <div className={styles.hintBox}>
+              <div className={styles.hintBoxInner}>{hint}</div>
+            </div>
+          )}
+        </div>
+      </div>
+
       <div className={styles.answerArea}>
         {answers.map((answer) => (
           <label key={answer} className={styles.multipleAnswerBtn}>
