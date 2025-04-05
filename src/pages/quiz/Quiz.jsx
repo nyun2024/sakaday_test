@@ -4,7 +4,7 @@ import NormalQuiz from '@components/quiz/NormalQuiz'
 import InputQuiz from '@components/quiz/InputQuiz'
 import { useSelector, useDispatch } from 'react-redux'
 import { setScore } from '@store/quizList'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import NextQuizButton from '@components/button/NextQuizButton'
 import ProgressBar from '@components/progress/ProgressBar'
@@ -20,6 +20,7 @@ const Quiz = () => {
   const [userAnswer, setUserAnswer] = useState([])
   const [allUserAnswer, setAllUserAnswer] = useState([])
   const [btnDisabled, setBtnDisabled] = useState(true)
+  const scrollRef = useRef(null)
 
   const addUserAnswers = () => {
     const updatedAnswers = [...allUserAnswer, userAnswer]
@@ -28,11 +29,6 @@ const Quiz = () => {
     if (QIndex + 1 < quizList.length) {
       setQIndex(QIndex + 1)
       setUserAnswer([])
-      setTimeout(() => {
-        window.scrollTo(0, 0)
-        document.body.scrollTop = 0
-        document.documentElement.scrollTop = 0
-      }, 50)
     } else {
       dispatch(setScore(updatedAnswers))
       navigate('/ResultScore')
@@ -61,6 +57,12 @@ const Quiz = () => {
     }
   }, [userAnswer])
 
+  useEffect(() => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollTop = 0
+    }
+  }, [QIndex])
+
   //새로고침 시 홈으로 강제 이동
   useEffect(() => {
     const isQuizReload = sessionStorage.getItem('isQuizReload')
@@ -74,7 +76,7 @@ const Quiz = () => {
   }, [navigate])
 
   return (
-    <Container className={styles.quizContainer}>
+    <Container className={styles.quizContainer} ref={scrollRef}>
       <ProgressBar currentNum={QIndex + 1} totalNum={quizList.length} />
       {quizList[QIndex] && quizList[QIndex].type === 'normal' ? (
         <NormalQuiz

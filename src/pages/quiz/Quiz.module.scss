@@ -1,5 +1,7 @@
 .quizContainer {
   padding: 25px 20px 120px;
+  max-height: 100dvh;
+  overflow-y: auto;
 }
 
 .nextBtn {
