@@ -5,6 +5,7 @@ import ImgAnswerButton from './button/ImgAnswerButton'
 const ImageQuiz = ({ num, totalNum, question, answers, hint, name, onSendData, imgDisableText }) => {
   const [isHintVisible, setIsHintVisible] = useState(false)
   const hintRef = useRef(null)
+  const QHighlight = question.split(/\[\[(.*?)\]\]/)
 
   const handleUserAnswer = (value) => {
     onSendData(value)
@@ -35,7 +36,17 @@ const ImageQuiz = ({ num, totalNum, question, answers, hint, name, onSendData, i
         <span className={styles.slash}> / </span>
         {totalNum < 10 ? '0' + totalNum : totalNum}
       </div>
-      <div className={styles.question}>{question}</div>
+      <div className={styles.question}>
+        {QHighlight.map((part, idx) =>
+          idx % 2 === 1 ? (
+            <span key={idx} className={styles.highlight}>
+              {part}
+            </span>
+          ) : (
+            part
+          ),
+        )}
+      </div>
 
       <div className={styles.hintAreaWrap}>
         <div className={styles.hintArea} ref={hintRef}>

@@ -4,6 +4,7 @@ import styles from './InputQuiz.module.scss'
 const InputQuiz = ({ num, totalNum, question, hint, onSendData }) => {
   const [isHintVisible, setIsHintVisible] = useState(false)
   const hintRef = useRef(null)
+  const QHighlight = question.split(/\[\[(.*?)\]\]/)
 
   const handleInputChange = (e) => {
     onSendData(e.target.value)
@@ -34,7 +35,17 @@ const InputQuiz = ({ num, totalNum, question, hint, onSendData }) => {
         <span className={styles.slash}> / </span>
         {totalNum < 10 ? '0' + totalNum : totalNum}
       </div>
-      <div className={styles.question}>{question}</div>
+      <div className={styles.question}>
+        {QHighlight.map((part, idx) =>
+          idx % 2 === 1 ? (
+            <span key={idx} className={styles.highlight}>
+              {part}
+            </span>
+          ) : (
+            part
+          ),
+        )}
+      </div>
 
       <div className={styles.hintAreaWrap}>
         <div className={styles.hintArea} ref={hintRef}>

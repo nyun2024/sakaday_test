@@ -13,8 +13,14 @@
   }
   .question {
     word-break: keep-all;
-    margin: 10px 0 18px;
+    margin: 10px 0 20px;
     text-align: center;
+    .highlight {
+      color: rgb(233, 33, 33);
+      font-family: 'MaruBuriSemiBold';
+      text-decoration: underline;
+      text-underline-offset: 5px;
+    }
   }
   .answerArea {
     display: flex;

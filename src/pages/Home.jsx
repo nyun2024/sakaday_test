@@ -48,11 +48,7 @@ const Home = () => {
       <ul className={styles.testDesc}>
         <li>총 객관식 10개, 주관식 5개</li>
         <li>출제범위 단행본 1권 ~ 19권</li>
-        <li>
-          문제가 어려울 경우 힌트 보기를
-          <br />
-          클릭해서 힌트를 얻을 수 있어요.
-        </li>
+        <li>힌트 보기를 클릭해서 힌트를 얻을 수 있어요.</li>
       </ul>
       <GoLink className={styles.goTest} link="/UseName" disabled={false}>
         문제 풀기

@@ -7,7 +7,7 @@ import natsuki from '@img/character/natsuki.jpg'
 const initialState = {
   quizList: [
     {
-      Q: 'C를 고르시오.',
+      Q: `사카모토에게 걸린 현상금을 노리고 접근한 킬러들이 위장한 직업이 [[아닌]] 것을 고르시오.`,
       A: [
         { a: 'A', img: sakamoto },
         { a: 'B', img: shin },

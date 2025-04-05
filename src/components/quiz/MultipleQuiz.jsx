@@ -5,6 +5,7 @@ const MultipleQuiz = ({ num, totalNum, question, answers, hint, onSendData }) =>
   const [selectedOptions, setSelectedOptions] = useState([])
   const [isHintVisible, setIsHintVisible] = useState(false)
   const hintRef = useRef(null)
+  const QHighlight = question.split(/\[\[(.*?)\]\]/)
 
   // 체크박스 변경 이벤트 핸들러
   const handleCheckboxChange = (event) => {
@@ -44,7 +45,17 @@ const MultipleQuiz = ({ num, totalNum, question, answers, hint, onSendData }) =>
         <span className={styles.slash}> / </span>
         {totalNum < 10 ? '0' + totalNum : totalNum}
       </div>
-      <div className={styles.question}>{question}</div>
+      <div className={styles.question}>
+        {QHighlight.map((part, idx) =>
+          idx % 2 === 1 ? (
+            <span key={idx} className={styles.highlight}>
+              {part}
+            </span>
+          ) : (
+            part
+          ),
+        )}
+      </div>
 
       <div className={styles.hintAreaWrap}>
         <div className={styles.hintArea} ref={hintRef}>
