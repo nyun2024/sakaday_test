@@ -46,9 +46,9 @@ const Home = () => {
       </div>
       <img src={randomValues.img} className={styles.img} alt="dummy" />
       <ul className={styles.testDesc}>
-        <li>⦁ 총 객관식 16개, 주관식 4개</li>
-        <li>⦁ 출제범위 단행본 1권 ~ 19권</li>
-        <li>⦁ 힌트 보기를 클릭해서 정답의 초성 및 몇권에 나오는지 힌트를 얻을 수 있어요.</li>
+        <li>- 총 객관식 16개, 주관식 4개</li>
+        <li>- 출제범위 단행본 1권 ~ 19권</li>
+        <li>- 힌트 보기를 클릭해서 정답의 초성 및 몇권에 나오는지 힌트를 얻을 수 있어요.</li>
       </ul>
       <GoLink className={styles.goTest} link="/UseName" disabled={false}>
         문제 풀기

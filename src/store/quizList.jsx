@@ -99,7 +99,7 @@ const initialState = {
       correctAnswer: '7권 - 시시바',
       score: 4,
       type: 'normal',
-      hint: ' ',
+      hint: '힌트 없음',
     },
     {
       Q: '사카모토가 세기의 킬러전에 출품하려고 한 권총의 기종 이름은? (띄어쓰기 포함) (6점)',
