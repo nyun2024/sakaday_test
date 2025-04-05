@@ -28,7 +28,9 @@ const Quiz = () => {
     if (QIndex + 1 < quizList.length) {
       setQIndex(QIndex + 1)
       setUserAnswer([])
-      window.scrollTo({ top: 0 })
+      window.scrollTo(0, 0)
+      document.documentElement.scrollTop = 0
+      document.body.scrollTop = 0
     } else {
       dispatch(setScore(updatedAnswers))
       navigate('/ResultScore')
