@@ -33,11 +33,11 @@ const ResultScore = () => {
     },
     score50to69: {
       img: img50to69,
-      dialogue: '"흐음 이 점수..\n좀 더 분발해야 겠는걸?"',
+      dialogue: '"흐음.. 이 점수..\n좀 더 분발해야 겠는걸?"',
     },
     score70to89: {
       img: img70to89,
-      dialogue: '"꽤 봐 줄만한 점수인걸?\n열심히 공부했나봐?!"',
+      dialogue: '"꽤 봐 줄 만한 점수인 걸?\n열심히 공부했나 봐?!"',
     },
     score90to100: {
       img: img90to100,
