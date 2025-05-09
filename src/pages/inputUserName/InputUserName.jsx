@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Container from '@components/Container'
 import GoLink from '@components/button/GoLink'
-import styles from './inputUserName.module.scss'
+import styles from './InputUserName.module.scss'
 
 const InputUserName = () => {
   const [userName, setUserName] = useState('')
